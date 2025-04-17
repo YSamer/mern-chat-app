@@ -50,7 +50,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="h-screen pt-16">
+    <div className="h-full pt-16">
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="bg-base-300 rounded-xl p-6 space-y-8">
           <div className="text-center">
@@ -111,7 +111,7 @@ const ProfilePage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10 dark:bg-gray-500"
+                  className="input input-bordered w-full pl-10"
                 />
               </div>
             </div>
@@ -132,7 +132,7 @@ const ProfilePage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10 dark:bg-gray-500"
+                  className="input input-bordered w-full pl-10"
                 />
               </div>
             </div>

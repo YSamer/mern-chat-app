@@ -67,7 +67,7 @@ const LoginPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10 dark:bg-gray-500"
+                  className="input input-bordered w-full pl-10"
                 />
               </div>
             </div>
@@ -88,7 +88,7 @@ const LoginPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10 dark:bg-gray-500"
+                  className="input input-bordered w-full pl-10"
                 />
                 <button
                   type="button"
