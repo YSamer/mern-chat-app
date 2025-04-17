@@ -104,7 +104,7 @@ export const logout = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const { avatar } = req.body;
+  const { name, email, avatar } = req.body;
   try {
     const userId = req.user._id;
     let uploadResponse;
@@ -114,12 +114,15 @@ export const updateUser = async (req, res) => {
         new: true,
       });
     }
-    const user = await User.findByIdAndUpdate(userId, {
-      name,
-      email,
-      password,
-      avatar: uploadResponse?.secure_url || "",
-    });
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        name,
+        email,
+        avatar: uploadResponse?.secure_url || "",
+      },
+      { new: true }
+    );
     res.status(200).json({
       user: user,
       message: "User updated successfully",
