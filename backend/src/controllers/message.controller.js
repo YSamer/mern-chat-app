@@ -1,4 +1,5 @@
 import cloudinary from "../lib/cloudinary.js";
+import { getReceiverSocketId, io } from "../lib/socket.js";
 import Message from "../models/message.model.js";
 import User from "../models/user.model.js";
 
@@ -65,6 +66,10 @@ export const sendMessage = async (req, res) => {
     // const populatedMessage = await Message.populate(message, "senderId");
 
     // TODO: Emit event to update the conversation real-time
+    const receiverSocketId = getReceiverSocketId(userToChatId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("newMessage", message);
+    }
 
     res.status(200).json({
       newMessage: message,
