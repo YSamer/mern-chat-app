@@ -62,12 +62,12 @@ export const sendMessage = async (req, res) => {
       image: imageUrl,
     });
 
-    const populatedMessage = await Message.populate(message, "senderId");
+    // const populatedMessage = await Message.populate(message, "senderId");
 
     // TODO: Emit event to update the conversation real-time
 
     res.status(200).json({
-      message: populatedMessage,
+      newMessage: message,
       success: true,
       message: "Message sent",
     });

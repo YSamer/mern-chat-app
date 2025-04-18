@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
     avatar: { type: String, default: "" },
     isAdmin: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },
+    isOnline: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
