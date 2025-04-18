@@ -43,10 +43,7 @@ const App = () => {
           path="/signup"
           element={user ? <Navigate to="/" /> : <SignupPage />}
         />
-        <Route
-          path="/settings"
-          element={user ? <SettingsPage /> : <Navigate to="/login" />}
-        />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route
           path="/profile"
           element={user ? <ProfilePage /> : <Navigate to="/login" />}

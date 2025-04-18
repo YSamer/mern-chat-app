@@ -107,22 +107,18 @@ export const updateUser = async (req, res) => {
   const { name, email, avatar } = req.body;
   try {
     const userId = req.user._id;
-    let uploadResponse;
+    let updatedData = { name, email };
+
     if (avatar) {
-      uploadResponse = await cloudinary.uploader.upload(avatar, {
+      const uploadResponse = await cloudinary.uploader.upload(avatar, {
         folder: "avatars",
         new: true,
       });
+      updatedData.avatar = uploadResponse?.secure_url || "";
     }
-    const user = await User.findByIdAndUpdate(
-      userId,
-      {
-        name,
-        email,
-        avatar: uploadResponse?.secure_url || "",
-      },
-      { new: true }
-    );
+    const user = await User.findByIdAndUpdate(userId, updatedData, {
+      new: true,
+    });
     res.status(200).json({
       user: user,
       message: "User updated successfully",

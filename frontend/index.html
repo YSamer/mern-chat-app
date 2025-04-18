@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="en" data-theme="retro">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <!-- TODO: Add favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LogiChat</title>
+    <script>
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
   </head>
   <body>
     <div id="root"></div>

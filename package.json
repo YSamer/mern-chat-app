@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "cd backend && npm install && cd ../frontend && npm install && cd ../",
     "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
     "start": "pm2 start npm --name backend-app --cwd ./backend -- run start && pm2 save && pm2 startup",
     "stop": "pm2 stop backend-app",
-    "restart": "pm2 restart backend-app",
-    "dev": "npm run dev --prefix backend && npm run dev --prefix frontend"
+    "restart": "pm2 restart backend-app"
   },
   "repository": {
     "type": "git",
