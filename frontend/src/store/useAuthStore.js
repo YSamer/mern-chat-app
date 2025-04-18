@@ -4,7 +4,9 @@ import { create } from "zustand";
 import axiosInstance from "../lib/axios.js";
 
 const BASE_URL =
-  process.env.NODE_ENV === "development" ? "http://localhost:5001" : "/";
+  import.meta.env.VITE_NODE_ENV === "development"
+    ? import.meta.env.VITE_BACKEND_LOCAL_URL
+    : import.meta.env.VITE_BACKEND_URL;
 
 export const useAuthStore = create((set, get) => ({
   user: null,

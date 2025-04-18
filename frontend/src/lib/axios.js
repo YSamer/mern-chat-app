@@ -2,9 +2,9 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL:
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:5001/api/"
-      : "/api/",
+    import.meta.env.VITE_NODE_ENV === "development"
+      ? import.meta.env.VITE_BACKEND_LOCAL_API_URL
+      : import.meta.env.VITE_BACKEND_API_URL,
   withCredentials: true,
 });
 
