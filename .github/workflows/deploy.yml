@@ -16,11 +16,13 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy to VPS
+      - name: Generate SSH Key
+        run: ssh-keygen -t ed25519 -C "GitHub Actions" -f ~/.ssh/id_ed25519 -N ""
+
+      - name: Copy SSH Key to VPS
         run: |
-          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
-            cd /home/logic4it-chat/htdocs/mern-chat-app
-            git pull origin main
-            npm run build
-            npm run restart
-          EOF
+          ssh-copy-id -i ~/.ssh/id_ed25519.pub ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}
+
+      # - name: Deploy to VPS
+      #   run: |
+      #     ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
