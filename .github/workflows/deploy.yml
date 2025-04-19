@@ -28,4 +28,6 @@ jobs:
           ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             cd /home/logic4it-chat/htdocs/mern-chat-app
             node -v
+            nvm use 22
+            node -v
           EOF
