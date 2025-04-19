@@ -28,6 +28,7 @@ jobs:
           ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             bash -i -c '
               cd /home/logic4it-chat/htdocs/mern-chat-app
+              git fetch
               git reset --hard origin/main
               npm run build
               pm2 restart all
