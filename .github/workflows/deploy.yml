@@ -21,7 +21,7 @@ jobs:
 
       - name: Copy SSH Key to VPS
         run: |
-          ssh-copy-id -i ~/.ssh/id_ed25519.pub ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh-copy-id -i ~/.ssh/id_ed25519.pub ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}
 
       # - name: Deploy to VPS
       #   run: |
