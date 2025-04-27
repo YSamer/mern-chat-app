@@ -26,7 +26,7 @@ Check out the live demo: [https://chat.logic4it.com](https://chat.logic4it.com)
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v22 or higher)
 - MongoDB
 - npm or yarn
 
